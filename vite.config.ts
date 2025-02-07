@@ -18,6 +18,7 @@ export default defineConfig({
       "@lib": path.resolve(__dirname, "./src/lib"),
       "@constants": path.resolve(__dirname, "./src/constants"),
       "@context": path.resolve(__dirname, "./src/context"),
+      "@api": path.resolve(__dirname, "./src/api"),
     },
   },
   plugins: [react(), tailwindcss()],
