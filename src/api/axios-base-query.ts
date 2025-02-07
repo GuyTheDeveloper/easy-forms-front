@@ -13,7 +13,7 @@ export const axiosBaseQuery =
       headers?: AxiosRequestConfig["headers"];
     },
     unknown,
-    unknown
+    { status?: number; data?: any }
   > =>
   async ({ url, method, data, params, headers }) => {
     try {

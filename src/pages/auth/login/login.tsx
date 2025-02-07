@@ -2,7 +2,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "./login.schema";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { useLoginMutation } from "@api/auth-api";
 
 interface AuthValues {
@@ -13,7 +12,7 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors },
     watch,
   } = useForm<AuthValues>({
     resolver: yupResolver(loginSchema),
@@ -34,7 +33,7 @@ export const Login = () => {
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
           Sign in to your account
         </h2>
-        {error ? (
+        {error && "data" in error ? (
           <p className="text-red-500">Error: {error.data?.error}</p>
         ) : null}
       </div>
