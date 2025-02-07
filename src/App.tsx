@@ -1,10 +1,16 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Login, Register } from "@pages/auth";
+import { Home } from "@pages/home";
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-full text-[35px]/[35px] text-red-500">
-      Easy Forms
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<Navigate to={"/login"} />} />
+    </Routes>
   );
 }
 

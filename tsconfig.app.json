@@ -33,6 +33,7 @@
       "@lib/*": ["src/lib/*"],
       "@constants/*": ["src/constants/*"],
       "@context/*": ["src/context/*"],
+      "@api/*":["src/api/*"],
       "@/*": ["src/*"]
     }
   },
