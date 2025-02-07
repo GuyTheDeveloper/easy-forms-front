@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { registerSchema } from "./register.schema";
-import { useLoginMutation, useSignupMutation } from "@api/auth-api";
+import { useSignupMutation } from "@api/auth-api";
 import { Button } from "@components/ui/button";
 
 interface AuthValues {
@@ -15,7 +15,7 @@ export const Register = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors },
     watch,
   } = useForm<AuthValues>({
     resolver: yupResolver(registerSchema),
@@ -33,8 +33,8 @@ export const Register = () => {
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="bg-transparent rounded-[6px] mx-auto my-auto min-w-96">
-        <h2 className="text-center">Sign In to Chat</h2>
-        {error ? (
+        <h2 className="text-center">Sign In</h2>
+        {error && "data" in error ? (
           <p className="text-red-500">Error: {error.data?.error}</p>
         ) : null}
         <form
